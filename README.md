@@ -1,6 +1,6 @@
 # Kntnt Matomo Tag Manager
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: GPL v2+](https://img.shields.io/badge/License-GPLv2+-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Requires PHP: 7.1+](https://img.shields.io/badge/PHP-7.1+-blue.svg)](https://php.net)
 [![Requires WordPress: 6.7](https://img.shields.io/badge/WordPress-6.7+-blue.svg)](https://wordpress.org)
 
