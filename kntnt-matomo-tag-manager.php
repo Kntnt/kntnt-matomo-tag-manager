@@ -36,7 +36,6 @@ final class Plugin {
 		}
 
 		/** @noinspection PhpUndefinedConstantInspection */
-		 */
 		$matomo_container_url = defined( 'KNTNT_MATOMO_TAG_MANAGER_CONTAINER_URL' ) ? KNTNT_MATOMO_TAG_MANAGER_CONATINER_URL : '';
 
 		/**
