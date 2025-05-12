@@ -4,7 +4,7 @@
 [![Requires PHP: 7.1+](https://img.shields.io/badge/PHP-7.1+-blue.svg)](https://php.net)
 [![Requires WordPress: 6.7](https://img.shields.io/badge/WordPress-6.7+-blue.svg)](https://wordpress.org)
 
-Adds Matomo Tag Manager for non-logged in visitors if the container ID is specified with either the PHP constant `KNTNT_MATOMO_TAG_MANAGER_CONATINER_ID` or the filter `kntnt-matomo-tag-manager-container-id`.
+Adds Matomo Tag Manager for non-logged in visitors if the container URL is specified with either the PHP constant `KNTNT_MATOMO_TAG_MANAGER_CONATINER_URL` or the filter `kntnt-matomo-tag-manager-container-url`.
 
 ## Description
 
@@ -14,8 +14,7 @@ This plugin:
 
 - Automatically adds the Matomo Tag Manager script to your site's header
 - Only loads for non-logged-in visitors to prevent tracking administrative actions
-- Provides multiple ways to configure your container ID (constant or filter)
-- Includes filters to customize the Matomo container URL for self-hosted instances
+- Provides multiple ways to configure your container URL (constant or filter)
 - Has zero configuration once set up – just works in the background
 
 ## Installation
@@ -27,14 +26,14 @@ This plugin:
 
 ## Configuration
 
-Set your Matomo Container ID using one of these methods:
+Set your Matomo Container URL (e.g. `https://cdn.matomo.cloud/XXXXX.matomo.cloud/container_YYYYYY.js`) using one of these methods:
 
 ### Method 1
 
 Add the following to your `wp-config.php` file:
 
 ```php
-define('KNTNT_MATOMO_TAG_MANAGER_CONTAINER_ID', 'YOUR_CONTAINER_ID');
+define('KNTNT_MATOMO_TAG_MANAGER_CONTAINER_URL', 'YOUR_CONTAINER_URL');
 ```
 
 ### Method 2
@@ -42,18 +41,8 @@ define('KNTNT_MATOMO_TAG_MANAGER_CONTAINER_ID', 'YOUR_CONTAINER_ID');
 Use the filter in your theme's functions.php or a custom plugin:
 
 ```php
-add_filter('kntnt-matomo-tag-manager-container-id', function() {
-   return 'YOUR_CONTAINER_ID';
-});
-```
-
-### Method 3
-
-For self-hosted Matomo instances, you can customize the container URL:
-
-```php
-add_filter('kntnt-matomo-tag-manager-container-url', function($url) {
-   return 'https://your-matomo-instance.com/path/to/container.js';
+add_filter('kntnt-matomo-tag-manager-container-url', function() {
+   return 'YOUR_CONTAINER_URL';
 });
 ```
 
@@ -75,6 +64,10 @@ If you are familiar with Git, please do a pull request.
 If you are not familiar with Git, please create a new ticket on the plugin's issue tracker on GitHub.
 
 ## Changelog
+
+### 1.1.0 (2025-05-12)
+
+* Replaced container ID configuration with only container URL configuration
 
 ### 1.0.0 (2025-04-11)
 

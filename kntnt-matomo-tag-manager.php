@@ -3,7 +3,7 @@
  * Plugin Name:         Kntnt Matomo Tag Manager
  * Plugin URI:          https://github.com/Kntnt/kntnt-matomo-tag-manager
  * Description:         Adds Matomo Tag Manager for non-logged in visitors if the container ID is specified with either the PHP constant `KNTNT_MATOMO_TAG_MANAGER_CONATINER_ID` or the filter `kntnt-matomo-tag-manager-container-id`.
- * Version:             1.0.0
+ * Version:             1.1.0
  * Requires at least:   6.7
  * Requires PHP:        7.1
  * Author:              TBarregren
@@ -36,27 +36,16 @@ final class Plugin {
 		}
 
 		/** @noinspection PhpUndefinedConstantInspection */
-		$matomo_container_id = defined( 'KNTNT_MATOMO_TAG_MANAGER_CONTAINER_ID' ) ? KNTNT_MATOMO_TAG_MANAGER_CONATINER_ID : '';
-
-		/**
-		 * Filters the Matomo Tag Manager container ID.
-		 *
-		 * Allows overriding the container ID specified by the KNTNT_MATOMO_TAG_MANAGER_CONTAINER_ID constant
-		 * or providing one if the constant is not set.
-		 *
-		 * @param string $matomo_container_id The Matomo container ID derived from the constant. Expected return is a string container ID.
 		 */
-		$matomo_container_id = apply_filters( 'kntnt-matomo-tag-manager-container-id', $matomo_container_id );
-
-		$matomo_container_url = $matomo_container_id ? sprintf( 'https://cdn.matomo.cloud/safeteam.matomo.cloud/container_%s.js', $matomo_container_id ) : '';
+		$matomo_container_url = defined( 'KNTNT_MATOMO_TAG_MANAGER_CONTAINER_URL' ) ? KNTNT_MATOMO_TAG_MANAGER_CONATINER_URL : '';
 
 		/**
 		 * Filters the Matomo Tag Manager container URL.
 		 *
-		 * Allows modification of the full URL pointing to the Matomo container JavaScript file.
-		 * Useful for self-hosted Matomo instances or different CDN endpoints.
+		 * Allows overriding the container URL specified by the KNTNT_MATOMO_TAG_MANAGER_CONTAINER_URL constant
+		 * or providing one if the constant is not set.
 		 *
-		 * @param string|null $matomo_container_url The automatically generated Matomo container URL based on the container ID. Expected return is a valid URL string.
+		 * @param string $matomo_container_url The Matomo container URL derived from the constant. Expected return is a string container URL.
 		 */
 		$matomo_container_url = apply_filters( 'kntnt-matomo-tag-manager-container-url', $matomo_container_url );
 
